@@ -140,20 +140,10 @@ class ContactController extends GetxController {
     loading(true);
 
     try {
-      final result = await httpService.request(
+      await httpService.request(
           url: Api.contact + '/' + contactDetail.value.contactId!,
           method: Method.PUT,
           params: data);
-
-      if (result != null) {
-        if (result is d.Response) {
-          // ignore: avoid_print
-          print(result.data);
-        } else {
-          // ignore: avoid_print
-          print('error');
-        }
-      }
     } finally {
       loading(false);
     }
@@ -191,16 +181,8 @@ class ContactController extends GetxController {
     loading(true);
 
     try {
-      final result = await httpService.request(
+      await httpService.request(
           url: Api.contact, method: Method.POST, params: data);
-
-      if (result != null) {
-        if (result is d.Response) {
-          // print(result.data);
-        } else {
-          // print('error');
-        }
-      }
     } finally {
       loading(false);
     }
@@ -210,17 +192,11 @@ class ContactController extends GetxController {
     Map<String, Object> customParams;
     customParams = {'userId': Api.userId};
     try {
-      final result = await httpService.request(
+      await httpService.request(
         url: Api.contact + '/' + idContact,
         method: Method.DELETE,
         params: customParams,
       );
-
-      if (result != null) {
-        if (result is! d.Response) {
-          print('error');
-        }
-      }
     } finally {
       int index =
           contactList.indexWhere((element) => element.contactId == idContact);

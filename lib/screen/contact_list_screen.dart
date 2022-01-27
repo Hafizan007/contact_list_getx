@@ -14,11 +14,11 @@ class ContactListScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           children: [
             const ContactSearchWidget(),
             marginHeight(40),
-            ContactListWidget()
+            const ContactListWidget()
           ],
         ),
       ),
